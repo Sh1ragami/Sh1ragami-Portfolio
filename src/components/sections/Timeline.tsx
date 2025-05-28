@@ -6,9 +6,9 @@ import { Briefcase, GraduationCap, Award, Code, ChevronDown } from 'lucide-react
 const timelineItems = [
   {
     id: 1,
-    year: '2020 - 2023',
+    year: '2020年 - 2023年',
     title: '山口県立萩商工高等学校',
-    description: '普通科に在籍。部活動ではバスケットボール部に所属。',
+    description: '簿記を中心に勉強し、全国商業高等学校協会の1級検定6種目取得',
     icon: <GraduationCap size={20} />,
     iconBg: 'bg-secondary-500',
     category: 'education',
@@ -16,7 +16,7 @@ const timelineItems = [
   },
   {
     id: 2,
-    year: '2023',
+    year: '2023年',
     title: '麻生情報ビジネス専門学校',
     description: 'プログラミング学習を始める。',
     icon: <GraduationCap size={20} />,
@@ -26,23 +26,23 @@ const timelineItems = [
   },
   {
     id: 3,
-    year: '2023　10月',
+    year: '2023年10月',
     title: '基本情報技術者試験　合格',
     description: '午後試験満点の成績で合格。',
     icon: <Award size={20} />,
     iconBg: 'bg-accent-500',
     category: 'certification',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg4i2iNhVFDOmb4hflkCqrDkTelri4uvEfbA&s',
+    image: '/images/FE.jpg',
   },
   {
     id: 3,
-    year: '2023　12月',
+    year: '2023年10月',
     title: '応用情報技術者試験　合格',
-    description: 'アルゴリズム等の得意科目でギリギリで合格。',
+    description: '',
     icon: <Award size={20} />,
     iconBg: 'bg-accent-500',
     category: 'certification',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg4i2iNhVFDOmb4hflkCqrDkTelri4uvEfbA&s',
+    image: '/images/AP.jpg',
   },
 ];
 
@@ -51,7 +51,7 @@ const hackathonItems = [
     id: 1,
     year: '2024年7月',
     title: 'OPEN HACK U 2024 FUKUOKA',
-    description: 'チーム開発でWebアプリケーションを制作。フロントエンド開発を担当。',
+    description: '初めてハッカソンに参加。惜しくも入賞できなかったが、これを機にハッカソンにのめり込む。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/hacktime.jpg',
@@ -60,7 +60,7 @@ const hackathonItems = [
     id: 2,
     year: '2024年9月',
     title: '株式会社B.P.WORKS LINEbotハッカソン 優勝',
-    description: 'モバイルアプリケーションの開発に参加。バックエンドAPIの実装を担当。',
+    description: 'LINE Bot を活用したミニゲームを開発。ハッカソンで初めての賞を獲得。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/llinebot.jpg',
@@ -78,7 +78,7 @@ const hackathonItems = [
     id: 3,
     year: '2024年10月',
     title: 'FUKUOKA学生ビジコン2024 ブロックチェーン部門 ブロックチェーン特別賞',
-    description: 'AIを活用したWebサービスを開発。フルスタック開発を担当。',
+    description: 'ブロックチェーンを活用した予約券譲渡アプリを考案',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/bizikon.jpg',
@@ -87,7 +87,7 @@ const hackathonItems = [
     id: 4,
     year: '2024年10月',
     title: 'ブロックチェーンフォーラム',
-    description: 'AIを活用したWebサービスを開発。フルスタック開発を担当。',
+    description: '福岡ブロックチェーンフォーラム2024に学生代表として登壇',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/forum.jpg',
@@ -96,7 +96,7 @@ const hackathonItems = [
     id: 4,
     year: '2024年11月',
     title: 'Engineer Driven Day(EDD) 2024  ライブリンクス賞',
-    description: 'AIを活用したWebサービスを開発。フルスタック開発を担当。',
+    description: '健康管理アプリHealpassを開発。実装作業を単独で担当',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/edd-goma.jpg',
@@ -105,7 +105,7 @@ const hackathonItems = [
     id: 5,
     year: '2024年12月',
     title: '第9回セキュリティコンテストMBSD Cybersecurity Challenges 2024 最優秀賞',
-    description: 'AIを活用したWebサービスを開発。フルスタック開発を担当。',
+    description: 'OSINT情報を活用したパッシブスキャンを行うASMツールを開発。39チームの中で最優秀賞を獲得。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/mbsd.jpg',
@@ -114,7 +114,7 @@ const hackathonItems = [
     id: 6,
     year: '2024年12月',
     title: '九州アプリチャレンジ・キャラバン 2024コンテスト 健闘賞',
-    description: 'AIを活用したWebサービスを開発。フルスタック開発を担当。',
+    description: 'スマホ依存防止アプリ、シェア・タイムを開発。4校合同チームで見事入賞を果たす。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/charekyara.jpg',
@@ -123,7 +123,7 @@ const hackathonItems = [
     id: 4,
     year: '2024年12月',
     title: '技育博 サイバーエージェント賞',
-    description: 'AIを活用したWebサービスを開発。フルスタック開発を担当。',
+    description: '複数の企業が共催するハッカソンに参加し、見事入賞。業界各社やエンジニアとの交流を大きく広げる。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/gikuhaku.jpg',
@@ -205,7 +205,7 @@ const HackathonGroup = () => {
           </div>
           <div>
             <h3 className="text-xl font-bold text-gray-800">ハッカソン参加歴</h3>
-            <p className="text-sm text-gray-600">2023年</p>
+            <p className="text-sm text-gray-600">2024年</p>
           </div>
         </div>
         <motion.div
@@ -334,12 +334,12 @@ const Timeline = () => {
                     <span className="inline-block px-3 py-1 rounded-full bg-primary-100 text-primary-600 text-sm font-medium mb-3">
                       現在
                     </span>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-3">同学年4人で非公式の研究室を立ち上げる。</h3>
-                    <p className="text-gray-600 text-lg">Webアプリケーション開発、モバイルアプリ開発、AI活用サービス開発に従事。</p>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3">麻生情報工学研究室(AIEL)を創立。</h3>
+                    <p className="text-gray-600 text-lg">同学年4人で非公式の研究室を立ち上げ、数理暗号を専門に勉強中。他にもブロックチェーンや、バックエンド開発など幅広い開発に取り組んでいる。</p>
                   </div>
                   <div className="w-full md:w-64 h-48 relative rounded-lg overflow-hidden">
                     <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg4i2iNhVFDOmb4hflkCqrDkTelri4uvEfbA&s"
+                      src="/images/kenkyushitu.jpg"
                       alt="現在の活動"
                       className="w-full h-full object-cover"
                     />

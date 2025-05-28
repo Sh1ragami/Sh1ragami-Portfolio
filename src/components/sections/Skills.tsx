@@ -6,24 +6,23 @@ import { AnimatePresence } from 'framer-motion';
 // Data for skill categories
 const skillCategories = [
   {
-    name: 'Backend',
+    name: 'バックエンド',
     icon: '🔧',
     skills: [
       {
-        name: 'Node.js',
-        level: 90,
-        description: 'マイクロサービスアーキテクチャの構築と運用',
+        name: 'SQL',
+        level: 80,
+        description: 'ほぼすべてのアプリケーションで使用。主にNoSQLやPostgreSQLを使用。',
         useCases: [
-          'RESTful APIの開発と最適化',
-          'GraphQLサービスの実装',
-          'WebSocketを使用したリアルタイム通信',
-          'バックグラウンドジョブの処理'
+          'ECサイトの作成。',
+          '複数のハッカソンで使用。',
+          'Firebase で使用。',
         ]
       },
       {
         name: 'Python',
         level: 85,
-        description: 'データ処理と機械学習の実装',
+        description: '競技プログラミングやアルゴリズム学習で使用。脆弱性診断ツールの作成のスキャン機能実装にも使用。',
         useCases: [
           'データ分析パイプラインの構築',
           '機械学習モデルの開発とデプロイ',
@@ -34,7 +33,7 @@ const skillCategories = [
       {
         name: 'Go',
         level: 70,
-        description: '高性能なバックエンドサービスの開発',
+        description: '独学で学習。簡易ベクトル検索アプリを作成。',
         useCases: [
           '高負荷なAPIサービスの実装',
           '並行処理を活用したデータ処理',
@@ -45,7 +44,7 @@ const skillCategories = [
       {
         name: 'Java',
         level: 65,
-        description: 'エンタープライズアプリケーションの開発',
+        description: '授業で学習。マインスイーバーや自動探索迷路などミニゲームを作成。',
         useCases: [
           'Spring Bootを使用したWebアプリケーション',
           'マルチスレッドアプリケーションの開発',
@@ -56,7 +55,7 @@ const skillCategories = [
       {
         name: 'PHP',
         level: 60,
-        description: 'Webアプリケーションの開発と保守',
+        description: '授業で学習。実際にECサイトを作成。',
         useCases: [
           'Laravelフレームワークを使用した開発',
           'CMSのカスタマイズと拡張',
@@ -66,22 +65,22 @@ const skillCategories = [
       },
     ],
     chartData: [
-      { subject: 'Node.js', A: 90 },
+      { subject: 'SQL', A: 80 },
       { subject: 'Python', A: 85 },
       { subject: 'Go', A: 70 },
       { subject: 'Java', A: 65 },
       { subject: 'PHP', A: 60 },
     ],
-    description: 'Extensive experience with Node.js microservices and Python data processing pipelines. Proficient in developing RESTful APIs and GraphQL services.'
+    description: '普段は、バックエンドを専門に開発をしています。最近は、C++やRustを使ったリアルタイムアプリケーションの開発などにも挑戦しています。'
   },
   {
-    name: 'Frontend',
+    name: 'フロントエンド',
     icon: '🎨',
     skills: [
       {
         name: 'React',
         level: 85,
-        description: 'モダンなWebアプリケーションの開発',
+        description: '複数のハッカソンでアプリ開発に使用。',
         useCases: [
           'SPAの開発と最適化',
           'コンポーネントライブラリの作成',
@@ -92,7 +91,7 @@ const skillCategories = [
       {
         name: 'TypeScript',
         level: 80,
-        description: '型安全なフロントエンド開発',
+        description: '複数のハッカソンでアプリ開発に使用。',
         useCases: [
           '型定義の作成と管理',
           'インターフェースの設計',
@@ -103,7 +102,7 @@ const skillCategories = [
       {
         name: 'HTML/CSS',
         level: 90,
-        description: 'レスポンシブなUIの実装',
+        description: '授業で学習。CSSは主にtailwind.cssを開発に利用。',
         useCases: [
           'モダンなレイアウトの作成',
           'アニメーションとトランジション',
@@ -113,8 +112,8 @@ const skillCategories = [
       },
       {
         name: 'Vue.js',
-        level: 60,
-        description: 'コンポーネントベースの開発',
+        level: 40,
+        description: '授業で学習。カレンダーアプリやToDoなど簡易アプリを作成。',
         useCases: [
           'Vuexを使用した状態管理',
           'Vue Routerによるルーティング',
@@ -138,19 +137,19 @@ const skillCategories = [
       { subject: 'React', A: 85 },
       { subject: 'TypeScript', A: 80 },
       { subject: 'HTML/CSS', A: 90 },
-      { subject: 'Vue.js', A: 60 },
+      { subject: 'Vue.js', A: 40 },
       { subject: 'Angular', A: 50 },
     ],
-    description: 'Focused on building responsive and accessible interfaces with React and TypeScript. Experienced with modern CSS frameworks and animation libraries.'
+    description: 'ハッカソン参加時には、フロントエンド領域も担当します。最近は、boltやcursorを使った高速なフロントエンド開発にはまっています。'
   },
   {
-    name: 'DevOps',
+    name: 'ツール',
     icon: '🚀',
     skills: [
       {
         name: 'Docker',
-        level: 90,
-        description: 'コンテナ化されたアプリケーションの開発と運用',
+        level: 70,
+        description: 'アプリ制作時の開発環境構築に使用。',
         useCases: [
           'マイクロサービスのコンテナ化',
           'マルチステージビルドの最適化',
@@ -160,8 +159,8 @@ const skillCategories = [
       },
       {
         name: 'Kubernetes',
-        level: 75,
-        description: 'コンテナオーケストレーション',
+        level: 50,
+        description: '簡易ベクトル検索アプリ作成時に使用。',
         useCases: [
           'クラスターの設計と構築',
           'デプロイメントの自動化',
@@ -171,8 +170,8 @@ const skillCategories = [
       },
       {
         name: 'AWS',
-        level: 85,
-        description: 'クラウドインフラストラクチャの構築と運用',
+        level: 30,
+        description: '授業でAWS Academyを修了。簡単なデモアプリで使用。',
         useCases: [
           'EC2インスタンスの管理',
           'S3を使用したストレージ管理',
@@ -181,9 +180,9 @@ const skillCategories = [
         ]
       },
       {
-        name: 'CI/CD',
+        name: 'Firebase',
         level: 80,
-        description: '継続的インテグレーションとデプロイメント',
+        description: 'ハッカソン参加時のアプリ製作で使用。主要機能の大半の利用経験あり。',
         useCases: [
           'GitHub Actionsの設定',
           'Jenkinsパイプラインの構築',
@@ -192,9 +191,9 @@ const skillCategories = [
         ]
       },
       {
-        name: 'Terraform',
+        name: 'Linux',
         level: 70,
-        description: 'インフラストラクチャのコード化',
+        description: 'WindowsのWSL2環境で使用。開発時など基本的にLinuxを使用。',
         useCases: [
           'クラウドリソースの管理',
           'モジュールの作成と再利用',
@@ -204,13 +203,13 @@ const skillCategories = [
       },
     ],
     chartData: [
-      { subject: 'Docker', A: 90 },
-      { subject: 'Kubernetes', A: 75 },
-      { subject: 'AWS', A: 85 },
-      { subject: 'CI/CD', A: 80 },
-      { subject: 'Terraform', A: 70 },
+      { subject: 'Docker', A: 70 },
+      { subject: 'Kubernetes', A: 50 },
+      { subject: 'AWS', A: 30 },
+      { subject: 'Firebase', A: 80 },
+      { subject: 'Linux', A: 70 },
     ],
-    description: 'Implemented containerized environments with Docker and Kubernetes. Deployed and managed infrastructure on AWS using Terraform and CloudFormation.'
+    description: '主要なツールは一通り触れたことがあります。最近は、Kubernetesやsupabase'
   }
 ];
 
