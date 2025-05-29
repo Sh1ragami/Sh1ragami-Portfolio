@@ -113,8 +113,8 @@ const hackathonItems = [
   {
     id: 6,
     year: '2024年12月',
-    title: '九州アプリチャレンジ・キャラバン 2024コンテスト 健闘賞',
-    description: 'スマホ依存防止アプリ、シェア・タイムを開発。4校合同チームで見事入賞を果たす。',
+    title: '九州アプリチャレンジ・キャラバン 2024コンテスト 特別賞',
+    description: 'スマホ依存防止アプリ、Share Timeを開発。4校合同チームで見事入賞を果たす。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
     image: '/images/charekyara.jpg',
@@ -334,7 +334,17 @@ const Timeline = () => {
                     <span className="inline-block px-3 py-1 rounded-full bg-primary-100 text-primary-600 text-sm font-medium mb-3">
                       現在
                     </span>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-3">麻生情報工学研究室(AIEL)を創立。</h3>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                      <a
+                        href="https://aiel.jp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-800 hover:text-primary-600 transition-colors"
+                      >
+                        麻生情報工学研究室(AIEL)
+                      </a>
+                      を創立。
+                    </h3>
                     <p className="text-gray-600 text-lg">同学年4人で非公式の研究室を立ち上げ、数理暗号を専門に勉強中。他にもブロックチェーンや、バックエンド開発など幅広い開発に取り組んでいる。</p>
                   </div>
                   <div className="w-full md:w-64 h-48 relative rounded-lg overflow-hidden">
