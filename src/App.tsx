@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
@@ -61,6 +61,7 @@ function App() {
   const [nextId, setNextId] = useState(0);
   const [score, setScore] = useState(0);
   const [scorePopups, setScorePopups] = useState<ScorePopup[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -73,6 +74,11 @@ function App() {
     }, 500);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // 音声ファイルを読み込む
+    audioRef.current = new Audio('/sounds/crow.mp3');
   }, []);
 
   // スコアポップアップの自動削除
@@ -112,6 +118,14 @@ function App() {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
+
+    // 音声を再生
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // 音声を最初から再生
+      audioRef.current.play().catch(error => {
+        console.error('音声の再生に失敗しました:', error);
+      });
+    }
 
     // スコア加算とポップアップ表示
     const newScore = score + 100;
