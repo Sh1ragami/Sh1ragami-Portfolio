@@ -44,7 +44,7 @@ const projects: Project[] = [
     image: '/images/healpass/healpass.jpg',
     shortDescription: '体型表示、AI機能を備えた次世代の健康管理アプリ',
     fullDescription: 'このアプリは、2024年11月開催の Engineer Driven Day (EDD) 2024 にて「ライブリンクス賞」、 2024年12月の 技育博2024 Vol.5 にて「サイバーエージェント賞」を受賞した健康管理アプリです。現代社会で大きな課題となっている「健康管理」や「孤食」に対し、 食事記録や日々の健康管理の手間を軽減し、視覚的にデータを把握できるように設計されています。さらに「Healpass」では、一般的な健康管理機能に加えて、 AIとの会話機能や体型の可視化機能も搭載しており、楽しみながら継続的に健康管理ができるのが特徴です。',
-    technologies: ['Flutter', 'Firebase', '楽天レシピ検索API', 'Firebase Cloud Messaging', 'Google Fit API', 'TripoSR'],
+    technologies: ['Flutter', 'Firebase', '楽天レシピ検索API', 'FCM', 'Google Fit API', 'TripoSR'],
     link: 'https://protopedia.net/prototype/6090',
     images: [
       '/images/healpass/healpass.jpg',
@@ -89,7 +89,7 @@ const projects: Project[] = [
     image: '/images/sharetime/sharetime.jpg',
     shortDescription: 'ギガ共有から着想を経て作成した協力型スマホ依存解消アプリ',
     fullDescription: 'このアプリは、2024年12月開催の 九州アプリチャレンジ・キャラバン2024（チャレキャラ） にて 「チャレキャラ特別賞」を受賞した スマホ依存抑制アプリ です。現代で深刻化する「スマホ依存」問題に対して、 複数人でルームを作成し、スマホの使用時間を可視化・比較しながら競い合うことで依存を抑制するという仕組みで設計されています。また、リアルタイムでデータを同期し、ユーザーごとに固有のIDを割り当てることで、 各ユーザーの使用時間を正確に管理できるように開発されています',
-    technologies: ['Firestore', 'Firebase Storage', 'Firebase Realtime Database'],
+    technologies: ['Firestore', 'Firebase Storage', 'Firebase DB'],
     link: 'https://protopedia.net/prototype/6741',
     images: [
       '/images/sharetime/sharetime.jpg',
@@ -160,32 +160,42 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
 };
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  // モーダルが開かれたときに背景のスクロールを無効化
+  React.useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
-        className="bg-white rounded-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden shadow-2xl"
+        className="bg-white rounded-2xl w-full max-w-6xl my-8 overflow-hidden shadow-2xl relative"
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex flex-col md:flex-row h-full">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200 hover:scale-110"
+          aria-label="閉じる"
+        >
+          <X size={20} className="text-gray-600" />
+        </button>
+
+        <div className="flex flex-col md:flex-row">
           {/* 左側：プロジェクト情報 */}
-          <div className="w-full md:w-1/2 p-8 overflow-y-auto">
+          <div className="w-full md:w-1/2 p-6 md:p-8 overflow-y-auto">
             <div className="flex justify-between items-start mb-6">
-              <h3 className="text-3xl font-bold text-gray-800">{project.title}</h3>
-              <button
-                onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <X size={24} />
-              </button>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">{project.title}</h3>
             </div>
 
             <div className="space-y-6">
@@ -232,20 +242,24 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           </div>
 
           {/* 右側：Canva埋め込みまたは画像スライダー */}
-          <div className="w-full md:w-1/2 bg-gray-50">
+          <div className="w-full md:w-1/2 bg-gray-50 flex items-center justify-center">
             {project.canvaUrl ? (
-              <div className="h-full p-4">
-                <div style={{
-                  position: 'relative', width: '100%', height: 0, paddingTop: '56.2500%',
-                  paddingBottom: 0, boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)', marginTop: '1.6em', marginBottom: '0.9em', overflow: 'hidden',
-                  borderRadius: '8px', willChange: 'transform'
-                }}>
-                  <iframe loading="lazy" style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, border: 'none', padding: 0, margin: 0 }}
-                    src={project.canvaUrl} allowFullScreen={true} allow="fullscreen">
-                  </iframe>
-                </div>
-                <div className="text-center text-sm text-gray-500 mt-2">
-                  <a href={project.canvaUrl} target="_blank" rel="noopener" className="text-primary-600 hover:text-primary-700">別のタブで開く</a>
+              <div className="h-full w-full p-4 flex flex-col items-center justify-center">
+                <div className="flex items-center justify-center w-full">
+                  <div className="w-full">
+                    <div style={{
+                      position: 'relative', width: '100%', height: 0, paddingTop: '56.2500%',
+                      paddingBottom: 0, boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)', overflow: 'hidden',
+                      borderRadius: '8px', willChange: 'transform'
+                    }}>
+                      <iframe loading="lazy" style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, border: 'none', padding: 0, margin: 0 }}
+                        src={project.canvaUrl} allowFullScreen={true} allow="fullscreen">
+                      </iframe>
+                    </div>
+                    <div className="text-center text-sm text-gray-500 mt-2">
+                      <a href={project.canvaUrl} target="_blank" rel="noopener" className="text-primary-600 hover:text-primary-700">別のタブで開く</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             ) : (
@@ -253,7 +267,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 modules={[Navigation, Pagination]}
                 navigation
                 pagination={{ clickable: true }}
-                className="h-full"
+                className="h-full w-full"
               >
                 {project.images.map((image: string, index: number) => (
                   <SwiperSlide key={index}>

@@ -30,10 +30,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
-      }`}
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        }`}
     >
       <div className="container-section py-0">
         <nav className="flex items-center justify-between">
@@ -44,12 +43,11 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a 
+              <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium hover:text-primary-600 transition-colors ${
-                  scrolled ? 'text-gray-700' : 'text-gray-800'
-                }`}
+                className={`text-sm font-medium hover:text-primary-600 transition-colors ${scrolled ? 'text-gray-700' : 'text-gray-800'
+                  }`}
               >
                 {link.name}
               </a>
@@ -57,7 +55,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Navigation Toggle */}
-          <button 
+          <button
             className="md:hidden text-gray-700"
             onClick={() => setIsOpen(!isOpen)}
           >
