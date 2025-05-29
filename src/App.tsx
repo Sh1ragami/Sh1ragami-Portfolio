@@ -115,13 +115,16 @@ function App() {
   };
 
   const handleCrowClick = (e: React.MouseEvent, crowId: number) => {
+    // イベントの伝播を停止
+    e.stopPropagation();
+
     const rect = e.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
     // 音声を再生
     if (audioRef.current) {
-      audioRef.current.currentTime = 0; // 音声を最初から再生
+      audioRef.current.currentTime = 0;
       audioRef.current.play().catch(error => {
         console.error('音声の再生に失敗しました:', error);
       });
@@ -169,7 +172,7 @@ function App() {
         <div className="relative overflow-hidden">
           <Hero />
           {/* Animated Crow Background */}
-          <div className="absolute inset-0 z-50">
+          <div className="absolute inset-0 z-10">
             {crows.map(crow => (
               <img
                 key={crow.id}
@@ -177,7 +180,10 @@ function App() {
                 alt="Flying Crow"
                 className={crow.className}
                 style={crow.style}
-                onClick={(e) => handleCrowClick(e, crow.id)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCrowClick(e, crow.id);
+                }}
               />
             ))}
 
@@ -185,7 +191,7 @@ function App() {
             {fireworks.map(firework => (
               <div
                 key={firework.id}
-                className="absolute w-2 h-2 rounded-full animate-firework"
+                className="absolute w-2 h-2 rounded-full animate-firework pointer-events-none"
                 style={{
                   left: firework.x,
                   top: firework.y,
@@ -199,7 +205,7 @@ function App() {
             {scorePopups.map(popup => (
               <div
                 key={popup.id}
-                className="absolute text-2xl font-bold text-primary-600 animate-score-pop"
+                className="absolute text-2xl font-bold text-primary-600 animate-score-pop pointer-events-none"
                 style={{
                   left: popup.x,
                   top: popup.y,
