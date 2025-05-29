@@ -35,7 +35,7 @@ const timelineItems = [
     image: '/images/timeline/FE.jpg',
   },
   {
-    id: 3,
+    id: 4,
     year: '2023年10月',
     title: '応用情報技術者試験　合格',
     description: '',
@@ -66,7 +66,7 @@ const hackathonItems = [
     image: '/images/timeline/linebot.jpg',
   },
   {
-    id: 2,
+    id: 3,
     year: '2024年10月',
     title: 'B3 -Blockchain Bootcamp & Business plan Workshop-',
     description: '4か月間に及ぶブロックチェーンキャンプに参加',
@@ -75,7 +75,7 @@ const hackathonItems = [
     image: '/images/timeline/b3.jpg',
   },
   {
-    id: 3,
+    id: 4,
     year: '2024年10月',
     title: 'FUKUOKA学生ビジコン2024 ブロックチェーン部門 ブロックチェーン特別賞',
     description: 'ブロックチェーンを活用した予約券譲渡アプリを考案',
@@ -84,7 +84,7 @@ const hackathonItems = [
     image: '/images/timeline/bizikon.jpg',
   },
   {
-    id: 4,
+    id: 5,
     year: '2024年10月',
     title: 'ブロックチェーンフォーラム',
     description: '福岡ブロックチェーンフォーラム2024に学生代表として登壇',
@@ -93,7 +93,7 @@ const hackathonItems = [
     image: '/images/timeline/forum.jpg',
   },
   {
-    id: 4,
+    id: 6,
     year: '2024年11月',
     title: 'Engineer Driven Day(EDD) 2024  ライブリンクス賞',
     description: '健康管理アプリHealpassを開発。実装作業を単独で担当',
@@ -102,7 +102,7 @@ const hackathonItems = [
     image: '/images/timeline/edd-goma.jpg',
   },
   {
-    id: 5,
+    id: 7,
     year: '2024年12月',
     title: '第9回セキュリティコンテストMBSD Cybersecurity Challenges 2024 最優秀賞',
     description: 'OSINT情報を活用したパッシブスキャンを行うASMツールを開発。39チームの中で最優秀賞を獲得。',
@@ -111,7 +111,7 @@ const hackathonItems = [
     image: '/images/timeline/mbsd.jpg',
   },
   {
-    id: 6,
+    id: 8,
     year: '2024年12月',
     title: '九州アプリチャレンジ・キャラバン 2024コンテスト 特別賞',
     description: 'スマホ依存防止アプリ、Share Timeを開発。4校合同チームで見事入賞を果たす。',
@@ -120,7 +120,7 @@ const hackathonItems = [
     image: '/images/timeline/charekyara.jpg',
   },
   {
-    id: 4,
+    id: 9,
     year: '2024年12月',
     title: '技育博 サイバーエージェント賞',
     description: '複数の企業が共催するハッカソンに参加し、見事入賞。業界各社やエンジニアとの交流を大きく広げる。',

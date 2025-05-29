@@ -185,10 +185,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200 hover:scale-110"
+          className="absolute top-4 right-4 z-10 p-2.5 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200 hover:scale-110 hover:shadow-xl group"
           aria-label="閉じる"
         >
-          <X size={20} className="text-gray-600" />
+          <div className="relative w-5 h-5">
+            <span className="absolute top-1/2 left-1/2 w-5 h-0.5 bg-gray-600 rounded-full transform -translate-x-1/2 -translate-y-1/2 rotate-45 transition-transform duration-200 group-hover:rotate-0"></span>
+            <span className="absolute top-1/2 left-1/2 w-5 h-0.5 bg-gray-600 rounded-full transform -translate-x-1/2 -translate-y-1/2 -rotate-45 transition-transform duration-200 group-hover:rotate-0"></span>
+          </div>
         </button>
 
         <div className="flex flex-col md:flex-row">
@@ -292,6 +295,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 const Works: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 80; // ヘッダーの高さに応じて調整
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleNavClick = (sectionId: string) => {
+    scrollToSection(sectionId);
+    // メニューを閉じる処理をここに追加（メニューの状態管理が必要な場合）
+  };
+
   return (
     <section id="works" className="bg-gray-50">
       <div className="container-section">
@@ -330,6 +352,35 @@ const Works: React.FC = () => {
         )}
       </AnimatePresence>
     </section>
+  );
+};
+
+// ナビゲーションリンクのコンポーネント
+const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const sectionId = href.replace('#', '');
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 80; // ヘッダーの高さに応じて調整
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  return (
+    <a
+      href={href}
+      onClick={handleClick}
+      className="block py-2 px-4 text-gray-600 hover:text-primary-500 transition-colors duration-200"
+    >
+      {children}
+    </a>
   );
 };
 
