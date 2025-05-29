@@ -184,10 +184,10 @@ const skillCategories = [
         level: 80,
         description: 'ハッカソン参加時のアプリ製作で使用。主要機能の大半の利用経験あり。',
         useCases: [
-          'GitHub Actionsの設定',
-          'Jenkinsパイプラインの構築',
-          '自動テストの実装',
-          'デプロイメントの自動化'
+          'Firebase Authenticationによるユーザー管理',
+          'Cloud Firestoreでのデータ永続化',
+          'Cloud Functionsによるバックエンド処理の実装',
+          'HostingとGitHub Actionsを連携したCI/CDパイプライン構築'
         ]
       },
       {
@@ -195,10 +195,10 @@ const skillCategories = [
         level: 70,
         description: 'WindowsのWSL2環境で使用。開発時など基本的にLinuxを使用。',
         useCases: [
-          'クラウドリソースの管理',
-          'モジュールの作成と再利用',
-          '状態管理の最適化',
-          'マルチクラウド環境の構築'
+          'シェルスクリプトによる開発環境の自動構築',
+          'GitやDockerなどのCLI操作',
+          'プロジェクトごとの環境分離とパッケージ管理',
+          'サーバーログの確認やネットワーク設定の調整'
         ]
       },
     ],
