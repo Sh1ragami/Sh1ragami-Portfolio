@@ -209,7 +209,7 @@ const skillCategories = [
       { subject: 'Firebase', A: 80 },
       { subject: 'Linux', A: 70 },
     ],
-    description: '主要なツールは一通り触れたことがあります。最近は、Kubernetesやsupabase'
+    description: '主要なツールは一通り触れたことがあります。最近は、Kubernetesやsupabaseを触っています。'
   }
 ];
 
