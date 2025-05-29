@@ -149,53 +149,54 @@ function App() {
   };
 
   return (
-    <div className="font-sans text-gray-900 bg-gray-50 relative overflow-hidden">
-      {/* Animated Crow Background */}
-      <div className="fixed inset-0">
-        {crows.map(crow => (
-          <img
-            key={crow.id}
-            src={crow.image}
-            alt="Flying Crow"
-            className={crow.className}
-            style={crow.style}
-            onClick={(e) => handleCrowClick(e, crow.id)}
-          />
-        ))}
-
-        {/* Firework Effects */}
-        {fireworks.map(firework => (
-          <div
-            key={firework.id}
-            className="absolute w-2 h-2 rounded-full animate-firework"
-            style={{
-              left: firework.x,
-              top: firework.y,
-              backgroundColor: firework.color,
-              '--angle': `${firework.angle}deg`
-            } as React.CSSProperties}
-          />
-        ))}
-
-        {/* Score Popups */}
-        {scorePopups.map(popup => (
-          <div
-            key={popup.id}
-            className="absolute text-2xl font-bold text-primary-600 animate-score-pop"
-            style={{
-              left: popup.x,
-              top: popup.y,
-              transform: 'translate(-50%, -50%)'
-            }}
-          >
-            {popup.score}
-          </div>
-        ))}
-      </div>
-
+    <div className="font-sans text-gray-900 bg-gray-50 relative">
       <Navbar />
       <main>
-        <Hero />
+        <div className="relative overflow-hidden">
+          <Hero />
+          {/* Animated Crow Background */}
+          <div className="absolute inset-0 z-50">
+            {crows.map(crow => (
+              <img
+                key={crow.id}
+                src={crow.image}
+                alt="Flying Crow"
+                className={crow.className}
+                style={crow.style}
+                onClick={(e) => handleCrowClick(e, crow.id)}
+              />
+            ))}
+
+            {/* Firework Effects */}
+            {fireworks.map(firework => (
+              <div
+                key={firework.id}
+                className="absolute w-2 h-2 rounded-full animate-firework"
+                style={{
+                  left: firework.x,
+                  top: firework.y,
+                  backgroundColor: firework.color,
+                  '--angle': `${firework.angle}deg`
+                } as React.CSSProperties}
+              />
+            ))}
+
+            {/* Score Popups */}
+            {scorePopups.map(popup => (
+              <div
+                key={popup.id}
+                className="absolute text-2xl font-bold text-primary-600 animate-score-pop"
+                style={{
+                  left: popup.x,
+                  top: popup.y,
+                  transform: 'translate(-50%, -50%)'
+                }}
+              >
+                {popup.score}
+              </div>
+            ))}
+          </div>
+        </div>
         <About />
         <Skills />
         <Timeline />
