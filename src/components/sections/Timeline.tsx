@@ -12,7 +12,7 @@ const timelineItems = [
     icon: <GraduationCap size={20} />,
     iconBg: 'bg-secondary-500',
     category: 'education',
-    image: '/images/hagishoukou.jpg',
+    image: '/images/timeline/hagishoukou.jpg',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const timelineItems = [
     icon: <GraduationCap size={20} />,
     iconBg: 'bg-secondary-500',
     category: 'education',
-    image: '/images/aso.jpg',
+    image: '/images/timeline/aso.jpg',
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const timelineItems = [
     icon: <Award size={20} />,
     iconBg: 'bg-accent-500',
     category: 'certification',
-    image: '/images/FE.jpg',
+    image: '/images/timeline/FE.jpg',
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const timelineItems = [
     icon: <Award size={20} />,
     iconBg: 'bg-accent-500',
     category: 'certification',
-    image: '/images/AP.jpg',
+    image: '/images/timeline/AP.jpg',
   },
 ];
 
@@ -54,7 +54,7 @@ const hackathonItems = [
     description: '初めてハッカソンに参加。惜しくも入賞できなかったが、これを機にハッカソンにのめり込む。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/hacktime.jpg',
+    image: '/images/timeline/hacktime.jpg',
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ const hackathonItems = [
     description: 'LINE Bot を活用したミニゲームを開発。ハッカソンで初めての賞を獲得。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/llinebot.jpg',
+    image: '/images/timeline/linebot.jpg',
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ const hackathonItems = [
     description: '4か月間に及ぶブロックチェーンキャンプに参加',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/b3.jpg',
+    image: '/images/timeline/b3.jpg',
   },
   {
     id: 3,
@@ -81,7 +81,7 @@ const hackathonItems = [
     description: 'ブロックチェーンを活用した予約券譲渡アプリを考案',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/bizikon.jpg',
+    image: '/images/timeline/bizikon.jpg',
   },
   {
     id: 4,
@@ -90,7 +90,7 @@ const hackathonItems = [
     description: '福岡ブロックチェーンフォーラム2024に学生代表として登壇',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/forum.jpg',
+    image: '/images/timeline/forum.jpg',
   },
   {
     id: 4,
@@ -99,7 +99,7 @@ const hackathonItems = [
     description: '健康管理アプリHealpassを開発。実装作業を単独で担当',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/edd-goma.jpg',
+    image: '/images/timeline/edd-goma.jpg',
   },
   {
     id: 5,
@@ -108,7 +108,7 @@ const hackathonItems = [
     description: 'OSINT情報を活用したパッシブスキャンを行うASMツールを開発。39チームの中で最優秀賞を獲得。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/mbsd.jpg',
+    image: '/images/timeline/mbsd.jpg',
   },
   {
     id: 6,
@@ -117,7 +117,7 @@ const hackathonItems = [
     description: 'スマホ依存防止アプリ、Share Timeを開発。4校合同チームで見事入賞を果たす。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/charekyara.jpg',
+    image: '/images/timeline/charekyara.jpg',
   },
   {
     id: 4,
@@ -126,7 +126,7 @@ const hackathonItems = [
     description: '複数の企業が共催するハッカソンに参加し、見事入賞。業界各社やエンジニアとの交流を大きく広げる。',
     icon: <Code size={20} />,
     iconBg: 'bg-primary-500',
-    image: '/images/gikuhaku.jpg',
+    image: '/images/timeline/gikuhaku.jpg',
   }
 ];
 
@@ -349,7 +349,7 @@ const Timeline = () => {
                   </div>
                   <div className="w-full md:w-64 h-48 relative rounded-lg overflow-hidden">
                     <img
-                      src="/images/kenkyushitu.jpg"
+                      src="/images/timeline/kenkyushitu.jpg"
                       alt="現在の活動"
                       className="w-full h-full object-cover"
                     />
