@@ -69,7 +69,7 @@ const Contact = () => {
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                    新卒求人
+                    新卒求人　など
                   </li>
                 </ul>
               </div>

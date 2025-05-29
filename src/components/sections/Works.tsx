@@ -11,11 +11,11 @@ interface Project {
   id: number;
   title: string;
   image: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
   technologies: string[];
   link: string;
   images: string[];
-  features: string[];
   role: string;
   period: string;
 }
@@ -26,106 +26,81 @@ const projects: Project[] = [
     id: 1,
     title: 'Passit',
     image: '/images/passit.jpg',
-    description: 'パスワード管理アプリケーション。安全なパスワード生成と管理を提供します。',
-    technologies: ['Node.js', 'React', 'MongoDB', 'Docker', 'AWS'],
+    shortDescription: '予約キャンセルの再利用を可能にするブロックチェーンアプリケーション。',
+    fullDescription: 'このプロダクトは、2024年10月開催のブロックチェーンを用いたビジネスモデル大会において、 予約キャンセルの再利用をテーマにした「Passit」を発案し、特別賞を受賞しました。ブロックチェーンの利点である優れたデータの透明性とNFTがもつ様々な特性を掛け合わせ、 予約の譲渡を可能にすることで予約キャンセルによる不利益を軽減しより多くの人に利益をもたらすことを目指しました。',
+    technologies: ['Ethereum', 'ERC-721', 'Solidity', 'Ruby on Rails', 'Flutter', 'Firebase', 'Firestore'],
     link: 'https://protopedia.net/prototype/6737',
     images: [
       '/images/passit.jpg',
       '/images/passit-2.jpg',
       '/images/passit-3.jpg',
     ],
-    features: [
-      '安全なパスワード生成',
-      'カテゴリ別管理',
-      '自動バックアップ',
-      'マルチデバイス同期'
-    ],
-    role: 'フロントエンド開発',
-    period: '2023年10月 - 2023年12月'
+    role: 'アイデア立案、検討',
+    period: '2023年8月 - 2023年12月'
   },
   {
     id: 2,
     title: 'Healpass',
     image: '/images/healpass.jpg',
-    description: '医療機関向け予約管理システム。患者と医療機関を効率的にマッチングします。',
-    technologies: ['Node.js', 'React', 'MongoDB', 'Docker', 'AWS'],
+    shortDescription: '体型表示、AI機能を備えた次世代の健康管理アプリ',
+    fullDescription: 'このアプリは、2024年11月開催の Engineer Driven Day (EDD) 2024 にて「ライブリンクス賞」、 2024年12月の 技育博2024 Vol.5 にて「サイバーエージェント賞」を受賞した健康管理アプリです。現代社会で大きな課題となっている「健康管理」や「孤食」に対し、 食事記録や日々の健康管理の手間を軽減し、視覚的にデータを把握できるように設計されています。さらに「Healpass」では、一般的な健康管理機能に加えて、 AIとの会話機能や体型の可視化機能も搭載しており、楽しみながら継続的に健康管理ができるのが特徴です。',
+    technologies: ['Flutter', 'Firebase', '楽天レシピ検索API', 'Firebase Cloud Messaging', 'Google Fit API', 'TripoSR'],
     link: 'https://protopedia.net/prototype/6090',
     images: [
       '/images/healpass.jpg',
       '/images/healpass-2.jpg',
       '/images/healpass-3.jpg',
     ],
-    features: [
-      'オンライン予約',
-      '診療科別管理',
-      '患者カルテ管理',
-      '予約リマインダー'
-    ],
-    role: 'バックエンド開発',
-    period: '2023年7月 - 2023年9月'
+    role: 'フルスタック開発',
+    period: '2024年7月 - 2024年9月'
   },
   {
     id: 3,
     title: 'Mon Deb Co',
     image: '/images/mondebco.jpg',
-    description: 'モダンなデビットカード管理アプリ。支出の追跡と予算管理を簡単に。',
-    technologies: ['Node.js', 'React', 'MongoDB', 'Docker', 'AWS'],
+    shortDescription: 'パッシブスキャンを駆使したASM（Attack Surface Management）ツール',
+    fullDescription: 'このツールは、2024年12月開催の株式会社MBSD（三井物産セキュアディレクション）が主催するセキュリティコンテストにおいて、 ASMをテーマにした課題に対して調査を行い手法を提案し実現することで最優秀賞を受賞しました。ASMに対してどのようなアプローチで調査を行い評価をするのかという論文を作成し、 実際に90個のツールを掛け合わせてパッシブスキャンを行い、企業の公開資産（特にシャドーIT）を調べるツールを開発しました。',
+    technologies: ['Node.js', 'React', 'tailwind.css', 'python'],
     link: 'https://protopedia.net/prototype/6731',
     images: [
       '/images/mondebco.jpg',
       '/images/mondebco-2.jpg',
       '/images/mondebco-3.jpg',
     ],
-    features: [
-      '支出の自動分類',
-      '予算設定と管理',
-      'レポート生成',
-      'マルチカード対応'
-    ],
     role: 'フルスタック開発',
-    period: '2023年4月 - 2023年6月'
+    period: '2024年10月 - 2024年12月'
   },
   {
     id: 4,
     title: 'Scanry',
     image: '/images/scanry.jpg',
-    description: 'QRコードスキャンアプリ。商品情報の即時取得と価格比較が可能。',
-    technologies: ['Node.js', 'React', 'MongoDB', 'Docker', 'AWS'],
+    shortDescription: 'スマホで手軽に収納サポートアプリ',
+    fullDescription: 'このアプリは、2024年7月開催の Open Hack U 2024 FUKUOKA で開発した収納サポートアプリです。部屋の間取りと収納家具の位置をアプリ上に登録することで、 アイテムの保管場所を効率よく管理・可視化できるように設計されています。収納したいものをタグ付けし、家具と紐づけて登録することで 収納場所が容易に分かるように開発しました。',
+    technologies: ['Flutter', 'Firebase Authentication', 'vision API', 'translation API'],
     link: 'https://protopedia.net/prototype/6742',
     images: [
       '/images/scanry.jpg',
       '/images/scanry-2.jpg',
       '/images/scanry-3.jpg',
     ],
-    features: [
-      'QRコードスキャン',
-      '価格比較機能',
-      '商品レビュー表示',
-      'お気に入り登録'
-    ],
     role: 'フロントエンド開発',
-    period: '2023年1月 - 2023年3月'
+    period: '2024年7月 - 2024年7月'
   },
   {
     id: 5,
     title: 'シェア・タイム',
     image: '/images/sharetime.jpg',
-    description: '時間共有アプリ。友達や家族と予定を簡単に共有・調整できます。',
-    technologies: ['Node.js', 'React', 'MongoDB', 'Docker', 'AWS'],
+    shortDescription: 'ギガ共有から着想を経て作成した協力型スマホ依存解消アプリ',
+    fullDescription: 'このアプリは、2024年12月開催の 九州アプリチャレンジ・キャラバン2024（チャレキャラ） にて 「チャレキャラ特別賞」を受賞した スマホ依存抑制アプリ です。現代で深刻化する「スマホ依存」問題に対して、 複数人でルームを作成し、スマホの使用時間を可視化・比較しながら競い合うことで依存を抑制するという仕組みで設計されています。また、リアルタイムでデータを同期し、ユーザーごとに固有のIDを割り当てることで、 各ユーザーの使用時間を正確に管理できるように開発されています',
+    technologies: ['Firestore', 'Firebase Storage', 'Firebase Realtime Database'],
     link: 'https://protopedia.net/prototype/6741',
     images: [
       '/images/sharetime.jpg',
       '/images/sharetime-2.jpg',
       '/images/sharetime-3.jpg',
     ],
-    features: [
-      '予定の共有',
-      'カレンダー同期',
-      'リマインダー機能',
-      'グループ管理'
-    ],
     role: 'バックエンド開発',
-    period: '2022年10月 - 2022年12月'
+    period: '2024年6月 - 2024年12月'
   }
 ];
 
@@ -157,7 +132,7 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
-        <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
+        <p className="text-gray-600 mb-4 line-clamp-2">{project.shortDescription}</p>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech: string, index: number) => (
@@ -206,19 +181,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <div className="space-y-6">
               <div>
                 <h4 className="text-lg font-semibold text-gray-800 mb-3">概要</h4>
-                <p className="text-gray-600 leading-relaxed">{project.description}</p>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3">主な機能</h4>
-                <ul className="space-y-2">
-                  {project.features.map((feature: string, index: number) => (
-                    <li key={index} className="flex items-center text-gray-600">
-                      <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-3" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-gray-600 leading-relaxed">{project.fullDescription}</p>
               </div>
 
               <div>

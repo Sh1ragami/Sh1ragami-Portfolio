@@ -150,15 +150,6 @@ function App() {
 
   return (
     <div className="font-sans text-gray-900 bg-gray-50 relative overflow-hidden">
-      {/* Score Display */}
-      <div className="fixed top-4 right-4 z-50">
-        <div className="bg-white/80 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
-          <div className="text-2xl font-bold text-primary-600">
-            Score: {score}
-          </div>
-        </div>
-      </div>
-
       {/* Animated Crow Background */}
       <div className="fixed inset-0">
         {crows.map(crow => (
