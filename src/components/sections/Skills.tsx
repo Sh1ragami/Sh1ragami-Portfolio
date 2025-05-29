@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import { AnimatePresence } from 'framer-motion';
+import { SiGo, SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, SiPython, SiRust, SiPhp, SiCplusplus, SiMysql, SiPostgresql, SiMongodb, SiDocker, SiKubernetes, SiAmazon, SiGithub, SiGitlab, SiVercel, SiNetlify, SiVuedotjs, SiAngular, SiGit, SiHtml5, SiCss3, SiFirebase, SiLinux } from 'react-icons/si';
+import { FaJava, FaStar, FaRegStar, FaStarHalfAlt, FaInfoCircle, FaDatabase, FaCode } from 'react-icons/fa';
 
 // Data for skill categories
 const skillCategories = [
@@ -10,9 +12,9 @@ const skillCategories = [
     icon: '🔧',
     skills: [
       {
-        name: 'SQL',
+        name: 'PostgreSQL',
         level: 80,
-        description: 'ほぼすべてのアプリケーションで使用。主にNoSQLやPostgreSQLを使用。',
+        description: 'ほぼすべてのアプリケーションで使用。主にPostgreSQLを使用。',
         useCases: [
           'ECサイトの作成。',
           '複数のハッカソンで使用。',
@@ -63,13 +65,37 @@ const skillCategories = [
           'レガシーシステムの保守'
         ]
       },
+      {
+        name: 'Rust',
+        level: 45,
+        description: 'システムプログラミングの学習として使用。',
+        useCases: [
+          'メモリ安全性を重視したアプリケーション開発',
+          'システムツールの作成',
+          'WebAssemblyを使用したWebアプリケーション',
+          'パフォーマンスクリティカルな処理の実装'
+        ]
+      },
+      {
+        name: 'C++',
+        level: 40,
+        description: '競技プログラミングで使用。',
+        useCases: [
+          'アルゴリズムの実装',
+          'パフォーマンス最適化',
+          'システムレベルのプログラミング',
+          'ゲーム開発'
+        ]
+      },
     ],
     chartData: [
-      { subject: 'SQL', A: 80 },
+      { subject: 'PostgreSQL', A: 80 },
       { subject: 'Python', A: 85 },
       { subject: 'Go', A: 70 },
       { subject: 'Java', A: 65 },
       { subject: 'PHP', A: 60 },
+      { subject: 'Rust', A: 45 },
+      { subject: 'C++', A: 40 },
     ],
     description: '普段は、バックエンドを専門に開発をしています。最近は、C++やRustを使ったリアルタイムアプリケーションの開発などにも挑戦しています。'
   },
@@ -132,6 +158,28 @@ const skillCategories = [
           'Angular Materialの活用'
         ]
       },
+      {
+        name: 'Next.js',
+        level: 75,
+        description: 'Reactベースのフレームワーク。SSRやSSGを活用した開発。',
+        useCases: [
+          'サーバーサイドレンダリングの実装',
+          '静的サイト生成の活用',
+          'APIルートの実装',
+          'パフォーマンス最適化'
+        ]
+      },
+      {
+        name: 'Tailwind CSS',
+        level: 85,
+        description: 'ユーティリティファーストのCSSフレームワーク。',
+        useCases: [
+          'レスポンシブデザインの実装',
+          'カスタムテーマの作成',
+          'コンポーネントのスタイリング',
+          'アニメーションの実装'
+        ]
+      },
     ],
     chartData: [
       { subject: 'React', A: 85 },
@@ -139,6 +187,8 @@ const skillCategories = [
       { subject: 'HTML/CSS', A: 90 },
       { subject: 'Vue.js', A: 40 },
       { subject: 'Angular', A: 50 },
+      { subject: 'Next.js', A: 75 },
+      { subject: 'Tailwind CSS', A: 85 },
     ],
     description: 'ハッカソン参加時には、フロントエンド領域も担当します。最近は、boltやcursorを使った高速なフロントエンド開発にはまっています。'
   },
@@ -201,6 +251,28 @@ const skillCategories = [
           'サーバーログの確認やネットワーク設定の調整'
         ]
       },
+      {
+        name: 'Git',
+        level: 85,
+        description: 'バージョン管理システム。チーム開発で日常的に使用。',
+        useCases: [
+          'ブランチ戦略の実装',
+          'GitHub ActionsによるCI/CD',
+          'コードレビューの実施',
+          'コンフリクトの解決'
+        ]
+      },
+      {
+        name: 'VSCode',
+        level: 90,
+        description: '主要な開発エディタ。拡張機能を活用した効率的な開発。',
+        useCases: [
+          'デバッグとデバッグ設定',
+          '拡張機能の活用',
+          'キーボードショートカットの活用',
+          'リモート開発環境の構築'
+        ]
+      },
     ],
     chartData: [
       { subject: 'Docker', A: 70 },
@@ -208,36 +280,78 @@ const skillCategories = [
       { subject: 'AWS', A: 30 },
       { subject: 'Firebase', A: 80 },
       { subject: 'Linux', A: 70 },
+      { subject: 'Git', A: 85 },
+      { subject: 'VSCode', A: 90 },
     ],
     description: '主要なツールは一通り触れたことがあります。最近は、Kubernetesやsupabaseを触っています。'
   }
 ];
 
-const SkillItem = ({ skill, categoryIndex }: { skill: any, categoryIndex: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
+const SkillIcon = ({ name, level }: { name: string; level: number }) => {
+  const getIcon = () => {
+    switch (name) {
+      case 'Go': return <SiGo className="w-8 h-8 text-blue-600" />;
+      case 'Python': return <SiPython className="w-8 h-8 text-yellow-500" />;
+      case 'Rust': return <SiRust className="w-8 h-8 text-orange-600" />;
+      case 'PHP': return <SiPhp className="w-8 h-8 text-purple-600" />;
+      case 'Java': return <FaJava className="w-8 h-8 text-red-600" />;
+      case 'C++': return <SiCplusplus className="w-8 h-8 text-blue-500" />;
+      case 'React': return <SiReact className="w-8 h-8 text-blue-400" />;
+      case 'Next.js': return <SiNextdotjs className="w-8 h-8 text-gray-800" />;
+      case 'Tailwind CSS': return <SiTailwindcss className="w-8 h-8 text-cyan-500" />;
+      case 'TypeScript': return <SiTypescript className="w-8 h-8 text-blue-600" />;
+      case 'PostgreSQL': return <SiPostgresql className="w-8 h-8 text-blue-500" />;
+      case 'MongoDB': return <SiMongodb className="w-8 h-8 text-green-600" />;
+      case 'Docker': return <SiDocker className="w-8 h-8 text-blue-600" />;
+      case 'Kubernetes': return <SiKubernetes className="w-8 h-8 text-blue-500" />;
+      case 'AWS': return <SiAmazon className="w-8 h-8 text-orange-500" />;
+      case 'GitHub': return <SiGithub className="w-8 h-8 text-gray-800" />;
+      case 'GitLab': return <SiGitlab className="w-8 h-8 text-orange-600" />;
+      case 'Vercel': return <SiVercel className="w-8 h-8 text-gray-800" />;
+      case 'Netlify': return <SiNetlify className="w-8 h-8 text-teal-500" />;
+      case 'Vue.js': return <SiVuedotjs className="w-8 h-8 text-green-500" />;
+      case 'Angular': return <SiAngular className="w-8 h-8 text-red-600" />;
+      case 'Git': return <SiGit className="w-8 h-8 text-orange-600" />;
+      case 'VSCode': return <FaCode className="w-8 h-8 text-blue-500" />;
+      case 'SQL': return <FaDatabase className="w-8 h-8 text-blue-600" />;
+      case 'HTML/CSS': return (
+        <div className="flex items-center justify-center space-x-1">
+          <SiHtml5 className="w-6 h-6 text-orange-500" />
+          <SiCss3 className="w-6 h-6 text-blue-500" />
+        </div>
+      );
+      case 'Firebase': return <SiFirebase className="w-8 h-8 text-orange-500" />;
+      case 'Linux': return <SiLinux className="w-8 h-8 text-gray-800" />;
+      default: return null;
+    }
+  };
+
+  const renderStars = () => {
+    const stars = [];
+    const fullStars = Math.floor(level / 20);
+    const hasHalfStar = level % 20 >= 10;
+
+    for (let i = 0; i < 5; i++) {
+      if (i < fullStars) {
+        stars.push(<FaStar key={i} className="text-yellow-400" />);
+      } else if (i === fullStars && hasHalfStar) {
+        stars.push(<FaStarHalfAlt key={i} className="text-yellow-400" />);
+      } else {
+        stars.push(<FaRegStar key={i} className="text-yellow-400" />);
+      }
+    }
+
+    return stars;
+  };
 
   return (
-    <div
-      className="relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="flex justify-between mb-1">
-        <span className="text-gray-700 font-medium">{skill.name}</span>
-        <span className="text-gray-500">{skill.level}%</span>
+    <div className="flex flex-col items-center p-2">
+      <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center mb-1">
+        {getIcon()}
       </div>
-      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-        <motion.div
-          className={`h-full ${categoryIndex === 0
-            ? 'bg-primary-600'
-            : categoryIndex === 1
-              ? 'bg-secondary-600'
-              : 'bg-accent-600'
-            }`}
-          initial={{ width: 0 }}
-          animate={{ width: `${skill.level}%` }}
-          transition={{ duration: 1, delay: 0.2 }}
-        />
+      <span className="text-sm font-medium text-gray-700">{name}</span>
+      <div className="flex mt-1">
+        {renderStars()}
       </div>
     </div>
   );
@@ -246,6 +360,7 @@ const SkillItem = ({ skill, categoryIndex }: { skill: any, categoryIndex: number
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [hoveredSkill, setHoveredSkill] = useState<any>(null);
+  const [showInfo, setShowInfo] = useState(false);
 
   const handleSkillHover = (skill: any) => {
     setHoveredSkill(skill);
@@ -350,35 +465,101 @@ const Skills = () => {
             )}
           </motion.div>
 
-          {/* Skills List */}
+          {/* Skills Grid */}
           <motion.div
             className="lg:w-1/2"
-            key={`list-${activeCategory}`}
+            key={`grid-${activeCategory}`}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                {skillCategories[activeCategory].name} Skills
-              </h3>
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-2xl font-bold text-gray-800">
+                  {skillCategories[activeCategory].name} Skills
+                </h3>
+                <div className="relative">
+                  <button
+                    onMouseEnter={() => setShowInfo(true)}
+                    onMouseLeave={() => setShowInfo(false)}
+                    className="bg-blue-50 hover:bg-blue-100 text-blue-600 p-2 rounded-full transition-colors shadow-sm hover:shadow-md"
+                  >
+                    <FaInfoCircle size={24} />
+                  </button>
+                  {showInfo && (
+                    <div className="absolute right-0 top-full mt-2 w-48 bg-white p-3 rounded-lg shadow-lg text-xs text-gray-600 z-10">
+                      <div className="space-y-1">
+                        <div className="flex items-center">
+                          <div className="flex text-yellow-400 mr-1">
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                          </div>
+                          <span>実務で使用</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="flex text-yellow-400 mr-1">
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaRegStar size={10} />
+                          </div>
+                          <span>個人開発で使用</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="flex text-yellow-400 mr-1">
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaRegStar size={10} />
+                            <FaRegStar size={10} />
+                          </div>
+                          <span>学習済み</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="flex text-yellow-400 mr-1">
+                            <FaStar size={10} />
+                            <FaStar size={10} />
+                            <FaRegStar size={10} />
+                            <FaRegStar size={10} />
+                            <FaRegStar size={10} />
+                          </div>
+                          <span>基礎学習中</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="flex text-yellow-400 mr-1">
+                            <FaStar size={10} />
+                            <FaRegStar size={10} />
+                            <FaRegStar size={10} />
+                            <FaRegStar size={10} />
+                            <FaRegStar size={10} />
+                          </div>
+                          <span>触った程度</span>
+                        </div>
+                      </div>
+                      <div className="absolute right-4 top-0 transform -translate-y-1/2 rotate-45 w-2 h-2 bg-white"></div>
+                    </div>
+                  )}
+                </div>
+              </div>
 
-              <div className="space-y-4 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {skillCategories[activeCategory].skills.map((skill) => (
                   <div
                     key={skill.name}
                     onMouseEnter={() => handleSkillHover(skill)}
                     onMouseLeave={handleSkillLeave}
+                    className="hover:bg-gray-50 rounded-lg transition-colors"
                   >
-                    <SkillItem
-                      skill={skill}
-                      categoryIndex={activeCategory}
-                    />
+                    <SkillIcon name={skill.name} level={skill.level} />
                   </div>
                 ))}
               </div>
 
-              <p className="text-gray-600 mt-4">
+              <p className="text-gray-600 mt-6">
                 {skillCategories[activeCategory].description}
               </p>
             </div>

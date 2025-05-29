@@ -8,7 +8,7 @@ const About = () => {
       <div className="container-section">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Image Section */}
-          <motion.div 
+          <motion.div
             className="lg:w-1/2"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -18,16 +18,16 @@ const About = () => {
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary-200 rounded-lg z-0"></div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary-200 rounded-lg z-0"></div>
-              <img 
-                src="/images/shiragami.png" 
-                alt="Professional headshot" 
+              <img
+                src="/images/shiragami.png"
+                alt="Professional headshot"
                 className="w-full max-w-md mx-auto rounded-lg shadow-lg relative z-10"
               />
             </div>
           </motion.div>
-          
+
           {/* Content Section */}
-          <motion.div 
+          <motion.div
             className="lg:w-1/2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -42,7 +42,7 @@ const About = () => {
               授業だけでなく、独学でもCSを学び、ハッカソンなどの様々なコンテストに参加するなかで新たな言語にも挑戦し独自に学ぶことを心がけています。
               作品や活動についてはページ下部で紹介していますので、ぜひご覧ください。
             </p>
-            
+
             {/* Key focus areas */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
@@ -50,13 +50,13 @@ const About = () => {
                 <h3 className="text-xl font-semibold mb-2">バック</h3>
                 <p className="text-gray-600">javaやPHP、C++など幅広く使用しています。最近は、pythonやRustを勉強しています。</p>
               </div>
-              
+
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <Server size={32} className="text-secondary-600 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">フロント</h3>
                 <p className="text-gray-600">主に、React, Next.js, tailwind.cssなどを使って開発しています。</p>
               </div>
-              
+
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <Cloud size={32} className="text-accent-600 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">その他</h3>
