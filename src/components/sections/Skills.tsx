@@ -45,7 +45,7 @@ const skillCategories = [
       },
       {
         name: 'Java',
-        level: 3,
+        level: 4,
         description: '授業で学習。マインスイーバーや自動探索迷路などミニゲームを作成。',
         useCases: [
           'Spring Bootを使用したWebアプリケーション',
@@ -56,7 +56,7 @@ const skillCategories = [
       },
       {
         name: 'PHP',
-        level: 3,
+        level: 4,
         description: '授業で学習。実際にECサイトを作成。',
         useCases: [
           'Laravelフレームワークを使用した開発',
@@ -114,8 +114,8 @@ const skillCategories = [
       { subject: 'PostgreSQL', A: 4 },
       { subject: 'Python', A: 4 },
       { subject: 'Go', A: 3 },
-      { subject: 'Java', A: 3 },
-      { subject: 'PHP', A: 3 },
+      { subject: 'Java', A: 4 },
+      { subject: 'PHP', A: 4 },
       { subject: 'Rust', A: 2 },
       { subject: 'C++', A: 2 },
       { subject: 'Node.js', A: 3 },
@@ -268,7 +268,7 @@ const skillCategories = [
       },
       {
         name: 'AWS',
-        level: 1,
+        level: 2,
         description: '授業でAWS Academyを修了。簡単なデモアプリで使用。',
         useCases: [
           'EC2インスタンスの管理',
@@ -290,7 +290,7 @@ const skillCategories = [
       },
       {
         name: 'Linux',
-        level: 3,
+        level: 4,
         description: 'WindowsのWSL2環境で使用。開発時など基本的にLinuxを使用。',
         useCases: [
           'シェルスクリプトによる開発環境の自動構築',
@@ -347,9 +347,9 @@ const skillCategories = [
     chartData: [
       { subject: 'Docker', A: 3 },
       { subject: 'Kubernetes', A: 2 },
-      { subject: 'AWS', A: 1 },
+      { subject: 'AWS', A: 2 },
       { subject: 'Firebase', A: 4 },
-      { subject: 'Linux', A: 3 },
+      { subject: 'Linux', A: 4 },
       { subject: 'Git', A: 4 },
       { subject: 'VSCode', A: 4 },
       { subject: 'Terraform', A: 2 },
