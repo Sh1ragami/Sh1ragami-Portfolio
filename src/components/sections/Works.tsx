@@ -173,14 +173,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto"
       onClick={onClose}
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
-        className="bg-white rounded-2xl w-full max-w-6xl my-8 overflow-hidden shadow-2xl relative"
+        className="bg-white rounded-2xl w-full max-w-6xl mt-8 sm:mt-12 mb-8 overflow-hidden shadow-2xl relative"
         onClick={e => e.stopPropagation()}
       >
         <button
@@ -196,24 +196,24 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
         <div className="flex flex-col md:flex-row">
           {/* 左側：プロジェクト情報 */}
-          <div className="w-full md:w-1/2 p-6 md:p-8 overflow-y-auto">
-            <div className="flex justify-between items-start mb-6">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">{project.title}</h3>
+          <div className="w-full md:w-1/2 p-4 sm:p-6 md:p-8 overflow-y-auto">
+            <div className="flex justify-between items-start mb-4 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{project.title}</h3>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3">概要</h4>
-                <p className="text-gray-600 leading-relaxed">{project.fullDescription}</p>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">概要</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">{project.fullDescription}</p>
               </div>
 
               <div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-3">使用技術</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">使用技術</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech: string, index: number) => (
                     <span
                       key={index}
-                      className="px-4 py-2 bg-gray-50 text-gray-700 rounded-full text-sm font-medium border border-gray-100"
+                      className="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-full text-sm font-medium border border-gray-100"
                     >
                       {tech}
                     </span>
@@ -223,12 +223,12 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-2">担当</h4>
-                  <p className="text-gray-600">{project.role}</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">担当</h4>
+                  <p className="text-sm text-gray-600">{project.role}</p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-800 mb-2">開発期間</h4>
-                  <p className="text-gray-600">{project.period}</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">開発期間</h4>
+                  <p className="text-sm text-gray-600">{project.period}</p>
                 </div>
               </div>
 
@@ -236,7 +236,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300"
+                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors duration-300"
               >
                 <ExternalLink size={18} className="mr-2" />
                 <span>プロジェクトを見る</span>
@@ -255,8 +255,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                       paddingBottom: 0, boxShadow: '0 2px 8px 0 rgba(63,69,81,0.16)', overflow: 'hidden',
                       borderRadius: '8px', willChange: 'transform'
                     }}>
-                      <iframe loading="lazy" style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, border: 'none', padding: 0, margin: 0 }}
-                        src={project.canvaUrl} allowFullScreen={true} allow="fullscreen">
+                      <iframe
+                        loading="lazy"
+                        style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, border: 'none', padding: 0, margin: 0 }}
+                        src={project.canvaUrl}
+                        allow="fullscreen"
+                        title={`${project.title} presentation`}
+                      >
                       </iframe>
                     </div>
                     <div className="text-center text-sm text-gray-500 mt-2">
