@@ -12,7 +12,7 @@ const articles = [
   {
     id: 1,
     title: 'GPGPUの数学的理論：なぜ行列演算がGPUと相性がいいのか？',
-    image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: '/images/articles/article_1.png',
     date: '2025-05-24',
     excerpt: 'GPUが得意とする並列処理の本質に迫り、なぜ行列演算がGPGPUと抜群に相性が良いのかを数学的視点から解説します。',
     readTime: '8 min read',
@@ -21,7 +21,7 @@ const articles = [
   {
     id: 2,
     title: '量子時代の暗号技術：ポスト量子暗号(PQC)とは？',
-    image: 'https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: '/images/articles/article_2.png',
     date: '2023-08-22',
     excerpt: '量子コンピュータによって従来の暗号が破られる未来に備え、ポスト量子暗号（PQC）の基本とその重要性をわかりやすく解説します。',
     readTime: '12 min read',
@@ -30,7 +30,7 @@ const articles = [
   {
     id: 3,
     title: '【完全解説】Pythonのリアルタイム処理｜弱点・対策・実装コードまとめ',
-    image: 'https://images.pexels.com/photos/7988079/pexels-photo-7988079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    image: '/images/articles/article_3.png',
     date: '2023-06-10',
     excerpt: 'pythonのリアルタイム処理の限界やその対策について解説します。',
     readTime: '10 min read',
@@ -119,7 +119,7 @@ const Articles = () => {
                       href={article.link}
                       className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
                     >
-                      Read More
+                      記事をみる
                       <ExternalLink size={16} className="ml-1" />
                     </a>
                   </div>

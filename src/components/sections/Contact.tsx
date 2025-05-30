@@ -141,7 +141,7 @@ const Contact = () => {
                 <div className="flex justify-center space-x-4 text-primary-100 text-sm mb-6">
                   <div className="flex items-center bg-primary-700/30 px-4 py-2 rounded-full">
                     <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                    比較的迅速な対応
+                    迅速な対応
                   </div>
                   <div className="flex items-center bg-primary-700/30 px-4 py-2 rounded-full">
                     <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
